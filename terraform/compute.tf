@@ -7,7 +7,7 @@ resource "tls_private_key" "ssh_key" {
 
 #Create a key pair
 resource "aws_key_pair" "instance_key" {
-  key_name = var.key_name
+  key_name   = var.key_name
   public_key = tls_private_key.ssh_key.public_key_openssh
 }
 
@@ -15,10 +15,10 @@ resource "aws_key_pair" "instance_key" {
 # Create an instance
 
 resource "aws_instance" "app_instance" {
-  ami= "ami-0230bd60aa48260c6"
-  instance_type = "t2.micro"
-  key_name = aws_key_pair.instance_key.id
-  user_data = file("./install-docker.sh")
+  ami                    = "ami-0230bd60aa48260c6"
+  instance_type          = "t2.micro"
+  key_name               = aws_key_pair.instance_key.id
+  user_data              = file("./install-docker.sh")
   vpc_security_group_ids = [aws_security_group.app_sg.id]
   tags = {
     Name = "app_server"
@@ -38,7 +38,7 @@ resource "aws_eip_association" "eip_assoc" {
 resource "aws_security_group" "app_sg" {
   name        = "public_instances_sg"
   description = "Security group for public instances"
-  
+
 }
 
 resource "aws_security_group_rule" "ingress_all" {
@@ -58,5 +58,5 @@ resource "aws_security_group_rule" "engress_all" {
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.app_sg.id
 }
- 
+
 
