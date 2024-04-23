@@ -8,7 +8,7 @@ variable "key_name" {
 
 variable "bucket_name" {
   type    = string
-  default = "dynamic-web-app-state-lock"
+  default = "dynamic-web-app-state-lock1"
 }
 
 variable "dynamodb_table" {
@@ -18,7 +18,7 @@ variable "dynamodb_table" {
 
 variable "region" {
   type    = string
-  default = "us-east-1"
+  default = "eu-north-1"
 }
 
 variable "bucket_key" {
