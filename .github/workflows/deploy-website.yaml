@@ -71,4 +71,4 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: lyndaaaudrey/website-repo:latest
+          tags: loic591/web-app:latest
