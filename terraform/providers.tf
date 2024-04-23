@@ -9,7 +9,7 @@ terraform {
     bucket         = "dynamic-web-app-state-lock1"
     key            = "backend/dynamic-website.tfstate"
     dynamodb_table = "terraform-state-lock"
-    region         = "us-east-1"
+    region         = "eu-north-1"
   }
 }
 
